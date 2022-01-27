@@ -84,13 +84,6 @@ def visual_solve(board, game):
                 return False
 
 
-def get_xy(pos):
-    x, y = pos
-    row = y // 34
-    col = x // 34
-    return row, col
-
-
 def main():
     run = True
     clock = pygame.time.Clock()
@@ -101,11 +94,6 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                pos = pygame.mouse.get_pos()
-                x_pos, y_pos = get_xy(pos)
-                print(x_pos, y_pos)
-                GAME_BOARD[x_pos][y_pos] = 1  # this is temporary
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     game = Sudoku()
